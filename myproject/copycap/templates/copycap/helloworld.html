@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+<img src="SEEWEED AI logo.png" width="150" height="205" alt="증명사진">
+{% block contents %}
+
+    <div style="height: 20rem; background-color: #38df81; border-radius: 1rem; margin: 2rem;">
+        <h1>
+            Please write your text below
+            <form action = "" method = "post">
+                <p><textarea name = "user_input" placeholder = "음성으로 만들고 싶은 text를 입력하세요."></textarea></p>
+                <p><input type = "submit"></p>
+            </form>
+        </h1>
+    </div>
+
+{% endblock  %}
