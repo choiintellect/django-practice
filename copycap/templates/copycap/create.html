@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block contents %}
+<div style="text-align: center; max-width: 500px; margin: 4rem auto">
+    <div>
+        <h4>SingUp</h4>
+    </div>
+    <form action="{% url 'copycap:index' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit">
+    </form>
+</div>
+{% endblock %}
