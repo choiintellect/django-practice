@@ -2,22 +2,32 @@
 <img src="SEEWEED AI logo.png" width="150" height="205" alt="증명사진">
 {% block contents %}
 
-    <div style="height: 20rem; background-color: #38df81; border-radius: 1rem; margin: 2rem;">
+    <div style="height: 30rem; background-color: #38df81; border-radius: 1rem; margin: 2rem;">
         <h1>
             Please write your text below
+        </h1>
             <form action = "/copycap/" method = "post">
                 {% csrf_token %}
                 <p><textarea name = "user_input" placeholder = "음성으로 만들고 싶은 text를 입력하세요." autofocus cols = "50" rows="10"></textarea></p>
-                <p><input type = "submit" value="POST"></p>
+                <input type = "submit" value="변해라 얍">
+                <br><br><br>
+                {% if user_input_list %}
+                    {% for user_input in user_input_list %}
+                    <h4>
+                        {{user_input.text}}
+                    </h4>
+                    {% endfor %}
+                {% endif %}
+                {% if converted_input_list %}
+                    {% for converted_input in converted_input_list %}
+                    <h5 style="color:rgb(188, 103, 103)">
+                        {{converted_input.text}}
+                    </h5>
+                    {% endfor %}
+                {% endif %}
+                <p><audio controls></audio></p>
             </form>
-        </h1>
-        {% if hello_world_list %}
-            {% for hello_world in hello_world_list %}
-            <h4>
-                {{hello_world.text}}
-            </h4>
-            {% endfor %}
-        {% endif %}
+        
     </div>
 
 {% endblock  %}
